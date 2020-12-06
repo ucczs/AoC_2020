@@ -23,6 +23,8 @@ typedef struct{
     int seatID;
 }boarding_pass_type;
 
+#define max(a,b) (((a) > (b)) ? (a) : (b))
+
 
 int getNumber(int lowerStart, int upperStart, int iterations, char* divider_char, char lower_char)
 {
@@ -64,10 +66,7 @@ int getHighestID(boarding_pass_type* boardingPass)
 
     for (int i = 0; i < NUMBER_BOARDING_PASSES; i++)
     {
-        if( boardingPass[i].seatID > highestID)
-        {
-            highestID = boardingPass[i].seatID;
-        }
+        highestID = max(highestID, boardingPass[i].seatID);
     }
     return(highestID);
 }
