@@ -2,7 +2,7 @@
 Advent of code 2020 in C and Python
 
 | Day   |      Language      |  Part1 | Part2 |
-|----------|:-------------:|:------:|:------:|
+|:----------:|:-------------:|:------:|:------:|
 | #1 |  C | :heavy_check_mark: | :heavy_check_mark: |
 | #2 |  C | :heavy_check_mark: | :heavy_check_mark: |
 | #3 |  C | :heavy_check_mark: | :heavy_check_mark: |
