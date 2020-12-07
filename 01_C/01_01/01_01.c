@@ -20,9 +20,9 @@ int main(int argc, char *argv[]) {
     int idx = 0;
 
 #if( TEST_RUN == 1 )
-    fp = fopen("D:\\Creativity\\Advent_of_Code\\AoC_2020\\01_C\\01_01\\test.txt", "r");
+    fp = fopen("test.txt", "r");
 #else
-    fp = fopen("D:\\Creativity\\Advent_of_Code\\AoC_2020\\01_C\\01_01\\input.txt", "r");
+    fp = fopen("input.txt", "r");
 #endif
 
     if(fp == NULL)
@@ -45,7 +45,7 @@ int main(int argc, char *argv[]) {
             if (numbers[firstNo] + numbers[secondNo] == 2020)
                 {
                     int result = numbers[firstNo] * numbers[secondNo];
-                    printf("Result: %d\n",result);
+                printf("\nResult 01_01: %d\n",result);
                 }
         }
     }

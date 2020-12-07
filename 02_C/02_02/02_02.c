@@ -61,9 +61,9 @@ int main(int argc, char *argv[]) {
     char line[LINE_LENGTH];
 
 #if( TEST_RUN == 1 )
-    fp = fopen("D:\\Creativity\\Advent_of_Code\\AoC_2020\\02_C\\02_02\\test.txt", "r");
+    fp = fopen("test.txt", "r");
 #else
-    fp = fopen("D:\\Creativity\\Advent_of_Code\\AoC_2020\\02_C\\02_02\\input.txt", "r");
+    fp = fopen("input.txt", "r");
 #endif
 
     if(fp == NULL)
@@ -84,7 +84,7 @@ int main(int argc, char *argv[]) {
         }
     }
 
-    printf("Number of wrong rules: %d", rule_true_count);
+    printf("Result 02_02: %d\n", rule_true_count);
 
     return(0);
 }

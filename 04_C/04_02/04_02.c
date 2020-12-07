@@ -226,9 +226,9 @@ int main(int argc, char *argv[]) {
     char line[LINE_LENGTH];
 
 #if( TEST_RUN == 1 )
-    fp = fopen("D:\\Creativity\\Advent_of_Code\\AoC_2020\\04_C\\04_02\\test.txt", "r");
+    fp = fopen("test.txt", "r");
 #else
-    fp = fopen("D:\\Creativity\\Advent_of_Code\\AoC_2020\\04_C\\04_02\\input.txt", "r");
+    fp = fopen("input.txt", "r");
 #endif
 
     if(fp == NULL)
@@ -242,7 +242,7 @@ int main(int argc, char *argv[]) {
 
     while(fgets(line, sizeof(line), fp) != NULL)
     {
-        printf("%s", line);
+        //printf("%s", line);
 
         if (line[0] == '\n')
         {
@@ -257,7 +257,7 @@ int main(int argc, char *argv[]) {
     checkValidStatusOfPassports(&passportCollection[0]);
     int results = getValidPassportsCount(&passportCollection[0]);
 
-    printf("\nValid Passports: %d", results);
+    printf("\nResult 04_02: %d\n", results);
 
     fclose(fp);
     return(0);

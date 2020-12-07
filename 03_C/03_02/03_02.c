@@ -82,7 +82,7 @@ void readInMap(char* line, bool map[FOREST_DOWN_SIZE][FOREST_WIDTH])
 {
     static int depth_count = 0;
 
-    printf("%s", line);
+    //printf("%s", line);
 
     for (int i = 0; i < FOREST_WIDTH; i++)
     {
@@ -105,9 +105,9 @@ int main(int argc, char *argv[]) {
     bool map[FOREST_DOWN_SIZE][FOREST_WIDTH];
 
 #if( TEST_RUN == 1 )
-    fp = fopen("D:\\Creativity\\Advent_of_Code\\AoC_2020\\03_C\\03_02\\test.txt", "r");
+    fp = fopen("test.txt", "r");
 #else
-    fp = fopen("D:\\Creativity\\Advent_of_Code\\AoC_2020\\03_C\\03_02\\input.txt", "r");
+    fp = fopen("input.txt", "r");
 #endif
 
     if(fp == NULL)
@@ -127,7 +127,7 @@ int main(int argc, char *argv[]) {
     getCollisionsWithDifferentSlopes(map, collision_collection);
 
     long long int result = getCollisionMultiplikation(collision_collection);
-    printf("\n\nNumber of collisions: %lld", result);
+    printf("Result 03_02: %lld\n", result);
 
     fclose(fp);
     return(0);

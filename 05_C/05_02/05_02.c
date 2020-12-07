@@ -126,9 +126,9 @@ int main(int argc, char *argv[]) {
     char line[LINE_LENGTH];
 
 #if( TEST_RUN == 1 )
-    fp = fopen("D:\\Creativity\\Advent_of_Code\\AoC_2020\\05_C\\05_01\\test.txt", "r");
+    fp = fopen("test.txt", "r");
 #else
-    fp = fopen("D:\\Creativity\\Advent_of_Code\\AoC_2020\\05_C\\05_01\\input.txt", "r");
+    fp = fopen("input.txt", "r");
 #endif
 
     if(fp == NULL)
@@ -142,7 +142,7 @@ int main(int argc, char *argv[]) {
     
     while(fgets(line, sizeof(line), fp) != NULL)
     {
-        printf("%s", line);
+        //printf("%s", line);
 
         sscanf(line, "%c%c%c%c%c%c%c%c%c%c", 
             &boardingPassCollection[boardingPassCount].row_div[0],
@@ -161,12 +161,11 @@ int main(int argc, char *argv[]) {
         boardingPassCount++;
     }
 
-
     int myRow = findRowWithMissingSeat(&boardingPassCollection);
     int mySeat = findMissingSeatInRow(&boardingPassCollection, myRow);
     int myID = NUMBER_SEATS_PER_ROW * myRow + mySeat;
 
-    printf("\nMy seat is at row %d, seat number %d, boarding ID %d", myRow, mySeat, myID);
+    printf("Result 05_02: %d\n", myID);
 
     fclose(fp);
     return(0);

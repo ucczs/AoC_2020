@@ -27,6 +27,6 @@ for group in inputList:
 
     countList.append(allAnswerCount)
 
-print(countList)
+# print(countList)
 result = sum(countList)
-print(result)
+print("Result 06_02: " + str(result))
