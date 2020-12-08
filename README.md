@@ -8,9 +8,9 @@ Advent of code 2020 in C and Python
 | [#3](./03_C/) |  C | :heavy_check_mark: | :heavy_check_mark: |
 | [#4](./04_C/) |  C | :heavy_check_mark: | :heavy_check_mark: |
 | [#5](./05_C/) |  C | :heavy_check_mark: | :heavy_check_mark: |
-| [#6](./06_C/) | Python | :heavy_check_mark: | :heavy_check_mark: |
-| [#7](./07_C/) | Python | :heavy_check_mark: | :heavy_check_mark: |
-| [#8](./08_C/) | Python | :heavy_check_mark: | :heavy_check_mark: |
+| [#6](./06_Python/) | Python | :heavy_check_mark: | :heavy_check_mark: |
+| [#7](./07_Python/) | Python | :heavy_check_mark: | :heavy_check_mark: |
+| [#8](./08_Python/) | Python | :heavy_check_mark: | :heavy_check_mark: |
 | #9 | - | :x: | :x: |
 | #10 | - | :x: | :x: |
 | #11 | - | :x: | :x: |
