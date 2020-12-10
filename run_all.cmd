@@ -47,3 +47,9 @@ python 08_01.py
 cd ../08_02
 python 08_02.py
 cd ../..
+
+cd 09_Python/09_01
+python 09_01.py
+cd ../09_02
+python 09_02.py
+cd ../..
