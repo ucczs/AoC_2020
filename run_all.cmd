@@ -59,3 +59,9 @@ python 10_01.py
 cd ../10_02
 python 10_02.py
 cd ../..
+
+cd 11_Python/11_01
+python 11_01.py
+cd ../11_02
+python 11_02.py
+cd ../..
