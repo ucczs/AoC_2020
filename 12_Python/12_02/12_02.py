@@ -53,4 +53,4 @@ if __name__ == "__main__":
             ship.moveForward(direction, distance)
 
     result = abs(ship.xPos) + abs(ship.yPos)
-    print("\nResult 12_02: " + str(result))
+    print("Result 12_02: " + str(result))
