@@ -16,7 +16,7 @@ Advent of code 2020 in C and Python
 | [#11](./11_Python/) | Python | :heavy_check_mark: | :heavy_check_mark: |
 | [#12](./12_Python/) | Python | :heavy_check_mark: | :heavy_check_mark: |
 | [#13](./13_Python/) | Python | :heavy_check_mark: | :heavy_check_mark: |
-| #14 | - | :x: | :x: |
+| [#14](./14_Python/) | Python | :heavy_check_mark: | :heavy_check_mark: |
 | #15 | - | :x: | :x: |
 | #16 | - | :x: | :x: |
 | #17 | - | :x: | :x: |
