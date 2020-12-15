@@ -16,17 +16,17 @@ distancePrevNumber = 0
 while(current_pos < 2020):
 
     if(prevNumberFirstTime):
-        used_number = 0
+        found_number = 0
     else:
-        used_number = distancePrevNumber
+        found_number = distancePrevNumber
 
-    if used_number not in numbers or numbers[used_number] == None:
+    if found_number not in numbers:
         prevNumberFirstTime = True
     else:
-        distancePrevNumber = current_pos - numbers[used_number]
+        distancePrevNumber = current_pos - numbers[found_number]
         prevNumberFirstTime = False
-    numbers[used_number] = current_pos
+    numbers[found_number] = current_pos
 
     current_pos += 1
 
-print("\nResult 15_01: " + str(used_number))
+print("\nResult 15_01: " + str(found_number))

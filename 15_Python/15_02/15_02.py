@@ -13,21 +13,21 @@ last_number = int(data[-1])
 prevNumberFirstTime = True
 distancePrevNumber = 0
 
-# 30000000 works with this solution ok'ish, takes about a minute
+# 30000000 works with this solution ok'ish, takes about half a minute
 while(current_pos < 30000000):
 
     if(prevNumberFirstTime):
-        used_number = 0
+        found_number = 0
     else:
-        used_number = distancePrevNumber
+        found_number = distancePrevNumber
 
-    if used_number not in numbers or numbers[used_number] == None:
+    if found_number not in numbers:
         prevNumberFirstTime = True
     else:
-        distancePrevNumber = current_pos - numbers[used_number]
+        distancePrevNumber = current_pos - numbers[found_number]
         prevNumberFirstTime = False
-    numbers[used_number] = current_pos
+    numbers[found_number] = current_pos
 
     current_pos += 1
 
-print("Result 15_02: " + str(used_number))
+print("Result 15_02: " + str(found_number))
