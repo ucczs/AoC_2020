@@ -141,8 +141,8 @@ def fillMap(rows, Map3D):
                 Map3D.coordinates[0][0][yCoord][xCoord] = True
 
 if __name__ == "__main__":
-    with open("test.txt") as file:
-    #with open("input.txt") as file:
+    #with open("test.txt") as file:
+    with open("input.txt") as file:
         data = file.read()
 
     rows = data.split("\n")
