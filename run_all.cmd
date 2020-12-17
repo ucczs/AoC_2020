@@ -89,3 +89,15 @@ python 15_01.py
 cd ../15_02
 python 15_02.py
 cd ../..
+
+cd 16_Python/16_01
+python 16_01.py
+cd ../16_02
+python 16_02.py
+cd ../..
+
+cd 17_Python/17_01
+python 17_01.py
+cd ../17_02
+python 17_02.py
+cd ../..
