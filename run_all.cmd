@@ -101,3 +101,9 @@ python 17_01.py
 cd ../17_02
 python 17_02.py
 cd ../..
+
+cd 18_Python/18_01
+python 18_01.py
+cd ../18_02
+python 18_02.py
+cd ../..
