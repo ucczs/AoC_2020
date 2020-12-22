@@ -107,3 +107,27 @@ python 18_01.py
 cd ../18_02
 python 18_02.py
 cd ../..
+
+cd 19_Python/19_01
+python 19_01.py
+cd ../19_02
+python 19_02.py
+cd ../..
+
+cd 20_Python/20_01
+python 20_01.py
+cd ../20_02
+python 20_02.py
+cd ../..
+
+cd 21_Python/21_01
+python 21_01.py
+cd ../21_02
+python 21_02.py
+cd ../..
+
+cd 22_Python/22_01
+python 22_01.py
+cd ../22_02
+python 22_02.py
+cd ../..
