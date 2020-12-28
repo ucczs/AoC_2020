@@ -7,7 +7,7 @@ Advent of code 2020 in C and Python
 | #2 |  [C](./02_C/) / [Python](./02_Python/) | :heavy_check_mark: | :heavy_check_mark: |
 | #3 |  [C](./03_C/) / [Python](./03_Python/) | :heavy_check_mark: | :heavy_check_mark: |
 | #4 |  [C](./04_C/) / [Python](./04_Python/) | :heavy_check_mark: | :heavy_check_mark: |
-| #5 |  [C](./05_C/) | :heavy_check_mark: | :heavy_check_mark: |
+| #5 |  [C](./05_C/) / [Python](./05_Python/) | :heavy_check_mark: | :heavy_check_mark: |
 | #6 | [Python](./06_Python/) | :heavy_check_mark: | :heavy_check_mark: |
 | #7 | [Python](./07_Python/) | :heavy_check_mark: | :heavy_check_mark: |
 | #8 | [Python](./08_Python/) | :heavy_check_mark: | :heavy_check_mark: |
