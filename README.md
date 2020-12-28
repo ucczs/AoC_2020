@@ -4,7 +4,7 @@ Advent of code 2020 in C and Python
 | Day   |      Language      |  Part1 | Part2 |
 |:----------:|:-------------:|:------:|:------:|
 | [#1](./01_C/) |  C | :heavy_check_mark: | :heavy_check_mark: |
-| [#2](./02_C/) |  C | :heavy_check_mark: | :heavy_check_mark: |
+| #2 |  [C](./02_C/) / [Python](./02_Python/) | :heavy_check_mark: | :heavy_check_mark: |
 | [#3](./03_C/) |  C | :heavy_check_mark: | :heavy_check_mark: |
 | [#4](./04_C/) |  C | :heavy_check_mark: | :heavy_check_mark: |
 | [#5](./05_C/) |  C | :heavy_check_mark: | :heavy_check_mark: |
