@@ -1,18 +1,19 @@
+#include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <stdbool.h>
 
 #define TEST_RUN 0
 
-#if( TEST_RUN == 1 )
-    #define LINE_LENGTH 100
-    #define PASSPORT_COUNT 4
+#if (TEST_RUN == 1)
+#define LINE_LENGTH 100
+#define PASSPORT_COUNT 4
 #else
-    #define LINE_LENGTH 100
-    #define PASSPORT_COUNT 255
+#define LINE_LENGTH 100
+#define PASSPORT_COUNT 255
 #endif
 
-typedef struct{
+typedef struct
+{
     bool byr_b;
     bool iyr_b;
     bool eyr_b;
@@ -22,17 +23,16 @@ typedef struct{
     bool pid_b;
     bool cid_b;
     bool valid;
-}passport_type;
+} passport_type;
 
-
-void extractFieldsFromLine(char line[LINE_LENGTH], passport_type* current_passport)
+void extractFieldsFromLine(char line[LINE_LENGTH], passport_type *current_passport)
 {
-    char* line_pos = line;
+    char *line_pos = line;
 
     while (line_pos != NULL)
     {
         // byr_b
-        if(strncmp(line_pos, "byr", 3) == 0)
+        if (strncmp(line_pos, "byr", 3) == 0)
         {
             current_passport->byr_b = true;
         }
@@ -77,23 +77,20 @@ void extractFieldsFromLine(char line[LINE_LENGTH], passport_type* current_passpo
         }
 
         line_pos = strchr(line_pos, ' ');
-        if ( line_pos != NULL)
+        if (line_pos != NULL)
         {
             line_pos = line_pos + sizeof(char);
         }
     }
 }
 
-void checkValidStatusOfPassports(passport_type* passportCollection)
+void checkValidStatusOfPassports(passport_type *passportCollection)
 {
     for (int i = 0; i < PASSPORT_COUNT; i++)
     {
-        if( passportCollection[i].byr_b == false ||
-            passportCollection[i].iyr_b == false ||
-            passportCollection[i].eyr_b == false ||
-            passportCollection[i].hgt_b == false ||
-            passportCollection[i].hcl_b == false ||
-            passportCollection[i].ecl_b == false ||
+        if (passportCollection[i].byr_b == false || passportCollection[i].iyr_b == false ||
+            passportCollection[i].eyr_b == false || passportCollection[i].hgt_b == false ||
+            passportCollection[i].hcl_b == false || passportCollection[i].ecl_b == false ||
             passportCollection[i].pid_b == false)
         {
             passportCollection[i].valid = false;
@@ -105,7 +102,7 @@ void checkValidStatusOfPassports(passport_type* passportCollection)
     }
 }
 
-int getValidPassportsCount(passport_type* passportCollection)
+int getValidPassportsCount(passport_type *passportCollection)
 {
     int valid_count = 0;
     for (int i = 0; i < PASSPORT_COUNT; i++)
@@ -115,20 +112,21 @@ int getValidPassportsCount(passport_type* passportCollection)
             valid_count++;
         }
     }
-    return(valid_count);
+    return (valid_count);
 }
 
-int main(int argc, char *argv[]) {
-    FILE* fp;
+int main(int argc, char *argv[])
+{
+    FILE *fp;
     char line[LINE_LENGTH];
 
-#if( TEST_RUN == 1 )
+#if (TEST_RUN == 1)
     fp = fopen("test.txt", "r");
 #else
     fp = fopen("input.txt", "r");
 #endif
 
-    if(fp == NULL)
+    if (fp == NULL)
     {
         printf("File could not be opened!");
         exit(1);
@@ -137,9 +135,9 @@ int main(int argc, char *argv[]) {
     passport_type passportCollection[PASSPORT_COUNT] = {false};
     int passport_idx = 0;
 
-    while(fgets(line, sizeof(line), fp) != NULL)
+    while (fgets(line, sizeof(line), fp) != NULL)
     {
-        //printf("%s", line);
+        // printf("%s", line);
 
         // empty line -> next passport
         if (line[0] == '\n')
@@ -158,5 +156,5 @@ int main(int argc, char *argv[]) {
     printf("\nResult 04_01: %d", results);
 
     fclose(fp);
-    return(0);
+    return (0);
 }

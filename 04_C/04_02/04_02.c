@@ -1,21 +1,22 @@
+#include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <stdbool.h>
 
 #define TEST_RUN 0
 
-#if( TEST_RUN == 1 )
-    #define LINE_LENGTH 100
-    #define PASSPORT_COUNT 4
+#if (TEST_RUN == 1)
+#define LINE_LENGTH 100
+#define PASSPORT_COUNT 4
 #else
-    #define LINE_LENGTH 100
-    #define PASSPORT_COUNT 255
+#define LINE_LENGTH 100
+#define PASSPORT_COUNT 255
 #endif
 
 #define LENGTH_FILED_NAMES 3
 #define LENGTH_HAIR_COLOR 3
 
-typedef struct{
+typedef struct
+{
     bool byr_b;
     bool iyr_b;
     bool eyr_b;
@@ -25,15 +26,14 @@ typedef struct{
     bool pid_b;
     bool cid_b;
     bool valid;
-}passport_type;
+} passport_type;
 
-
-bool checkForNumberRange(int lower_border, int upper_border, char* charInput)
+bool checkForNumberRange(int lower_border, int upper_border, char *charInput)
 {
     long number = strtol(charInput, NULL, 10);
     bool ret_val;
 
-    if( number >= lower_border && number <= upper_border)
+    if (number >= lower_border && number <= upper_border)
     {
         ret_val = true;
     }
@@ -42,18 +42,17 @@ bool checkForNumberRange(int lower_border, int upper_border, char* charInput)
         ret_val = false;
     }
 
-    return(ret_val);
+    return (ret_val);
 }
 
-
-void extractFieldsFromLine(char line[LINE_LENGTH], passport_type* current_passport)
+void extractFieldsFromLine(char line[LINE_LENGTH], passport_type *current_passport)
 {
-    char* line_pos = line;
+    char *line_pos = line;
 
     while (line_pos != NULL)
     {
         // byr_b
-        if(strncmp(line_pos, "byr", LENGTH_FILED_NAMES) == 0)
+        if (strncmp(line_pos, "byr", LENGTH_FILED_NAMES) == 0)
         {
             current_passport->byr_b = checkForNumberRange(1920, 2002, &line_pos[4]);
         }
@@ -95,11 +94,9 @@ void extractFieldsFromLine(char line[LINE_LENGTH], passport_type* current_passpo
                 current_passport->hcl_b = true;
 
                 for (int i = 0; i < hairColorLength; i++)
-                {   
-                    int ascii_val = (int)line_pos[5+i];
-                    if( ascii_val < (int)'0' ||
-                        ascii_val > (int)'9' && ascii_val < (int)'a' ||
-                        ascii_val > (int)'f')
+                {
+                    int ascii_val = (int)line_pos[5 + i];
+                    if (ascii_val < (int)'0' || ascii_val > (int)'9' && ascii_val < (int)'a' || ascii_val > (int)'f')
                     {
                         current_passport->hcl_b = false;
                     }
@@ -113,7 +110,7 @@ void extractFieldsFromLine(char line[LINE_LENGTH], passport_type* current_passpo
         // ecl_b
         else if (strncmp(line_pos, "ecl", LENGTH_FILED_NAMES) == 0)
         {
-            if(strncmp(&line_pos[4], "amb", LENGTH_HAIR_COLOR) == 0)
+            if (strncmp(&line_pos[4], "amb", LENGTH_HAIR_COLOR) == 0)
             {
                 current_passport->ecl_b = true;
             }
@@ -153,17 +150,17 @@ void extractFieldsFromLine(char line[LINE_LENGTH], passport_type* current_passpo
             int lengthPassportID = 9;
 
             for (int i = 0; i < lengthPassportID; i++)
-            {   
-                int ascii = (int)line_pos[4+i];
-                if( ascii < (int)'0' ||
-                    ascii > (int)'9')
+            {
+                int ascii = (int)line_pos[4 + i];
+                if (ascii < (int)'0' || ascii > (int)'9')
                 {
                     current_passport->pid_b = false;
                 }
             }
 
             // check if ID is longer than 9 characters
-            if(line_pos[LENGTH_FILED_NAMES+1+lengthPassportID] != ' ' && line_pos[LENGTH_FILED_NAMES+1+lengthPassportID] != '\n')
+            if (line_pos[LENGTH_FILED_NAMES + 1 + lengthPassportID] != ' ' &&
+                line_pos[LENGTH_FILED_NAMES + 1 + lengthPassportID] != '\n')
             {
                 current_passport->pid_b = false;
             }
@@ -179,23 +176,20 @@ void extractFieldsFromLine(char line[LINE_LENGTH], passport_type* current_passpo
         }
 
         line_pos = strchr(line_pos, ' ');
-        if ( line_pos != NULL)
+        if (line_pos != NULL)
         {
             line_pos = line_pos + sizeof(char);
         }
     }
 }
 
-void checkValidStatusOfPassports(passport_type* passportCollection)
+void checkValidStatusOfPassports(passport_type *passportCollection)
 {
     for (int i = 0; i < PASSPORT_COUNT; i++)
     {
-        if( passportCollection[i].byr_b == false ||
-            passportCollection[i].iyr_b == false ||
-            passportCollection[i].eyr_b == false ||
-            passportCollection[i].hgt_b == false ||
-            passportCollection[i].hcl_b == false ||
-            passportCollection[i].ecl_b == false ||
+        if (passportCollection[i].byr_b == false || passportCollection[i].iyr_b == false ||
+            passportCollection[i].eyr_b == false || passportCollection[i].hgt_b == false ||
+            passportCollection[i].hcl_b == false || passportCollection[i].ecl_b == false ||
             passportCollection[i].pid_b == false)
         {
             passportCollection[i].valid = false;
@@ -207,7 +201,7 @@ void checkValidStatusOfPassports(passport_type* passportCollection)
     }
 }
 
-int getValidPassportsCount(passport_type* passportCollection)
+int getValidPassportsCount(passport_type *passportCollection)
 {
     int valid_count = 0;
     for (int i = 0; i < PASSPORT_COUNT; i++)
@@ -218,20 +212,21 @@ int getValidPassportsCount(passport_type* passportCollection)
         }
     }
 
-    return(valid_count);
+    return (valid_count);
 }
 
-int main(int argc, char *argv[]) {
-    FILE* fp;
+int main(int argc, char *argv[])
+{
+    FILE *fp;
     char line[LINE_LENGTH];
 
-#if( TEST_RUN == 1 )
+#if (TEST_RUN == 1)
     fp = fopen("test.txt", "r");
 #else
     fp = fopen("input.txt", "r");
 #endif
 
-    if(fp == NULL)
+    if (fp == NULL)
     {
         printf("File could not be opened!");
         exit(1);
@@ -240,9 +235,9 @@ int main(int argc, char *argv[]) {
     passport_type passportCollection[PASSPORT_COUNT] = {false};
     int passport_idx = 0;
 
-    while(fgets(line, sizeof(line), fp) != NULL)
+    while (fgets(line, sizeof(line), fp) != NULL)
     {
-        //printf("%s", line);
+        // printf("%s", line);
 
         if (line[0] == '\n')
         {
@@ -260,5 +255,5 @@ int main(int argc, char *argv[]) {
     printf("\nResult 04_02: %d\n", results);
 
     fclose(fp);
-    return(0);
+    return (0);
 }

@@ -1,24 +1,23 @@
+#include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <stdbool.h>
 
 #define TEST_RUN 0
 
-#if( TEST_RUN == 1 )
-    #define LINE_LENGTH 13
-    #define FOREST_DOWN_SIZE 11
-    #define FOREST_WIDTH 11
+#if (TEST_RUN == 1)
+#define LINE_LENGTH 13
+#define FOREST_DOWN_SIZE 11
+#define FOREST_WIDTH 11
 #else
-    #define LINE_LENGTH 34
-    #define FOREST_DOWN_SIZE 323
-    #define FOREST_WIDTH 31
+#define LINE_LENGTH 34
+#define FOREST_DOWN_SIZE 323
+#define FOREST_WIDTH 31
 #endif
 
 #define SLOPE_COUNT 5
 
 int slope_right[SLOPE_COUNT];
 int slope_down[SLOPE_COUNT];
-
 
 int defineSlopes()
 {
@@ -40,7 +39,7 @@ int defineSlopes()
 
 void getCollisionsWithDifferentSlopes(bool map[FOREST_DOWN_SIZE][FOREST_WIDTH], int collision_collection[SLOPE_COUNT])
 {
-    for (int  j = 0; j < SLOPE_COUNT; j++)
+    for (int j = 0; j < SLOPE_COUNT; j++)
     {
         int collision_count = 0;
         int count_right = 0;
@@ -51,7 +50,7 @@ void getCollisionsWithDifferentSlopes(bool map[FOREST_DOWN_SIZE][FOREST_WIDTH], 
             collision_count++;
         }
 
-        for (int i = 0; i < (FOREST_DOWN_SIZE / slope_down[j])-1; i++)
+        for (int i = 0; i < (FOREST_DOWN_SIZE / slope_down[j]) - 1; i++)
         {
             count_down += slope_down[j];
             count_right += slope_right[j];
@@ -61,7 +60,6 @@ void getCollisionsWithDifferentSlopes(bool map[FOREST_DOWN_SIZE][FOREST_WIDTH], 
             {
                 collision_count++;
             }
-            
         }
         collision_collection[j] = collision_count;
     }
@@ -75,22 +73,22 @@ long long int getCollisionMultiplikation(int collision_collection[SLOPE_COUNT])
         result *= collision_collection[i];
     }
 
-    return(result);
+    return (result);
 }
 
-void readInMap(char* line, bool map[FOREST_DOWN_SIZE][FOREST_WIDTH])
+void readInMap(char *line, bool map[FOREST_DOWN_SIZE][FOREST_WIDTH])
 {
     static int depth_count = 0;
 
-    //printf("%s", line);
+    // printf("%s", line);
 
     for (int i = 0; i < FOREST_WIDTH; i++)
     {
-        if( line[i] == '.')
+        if (line[i] == '.')
         {
             map[depth_count][i] = false;
         }
-        else if( line[i] == '#')
+        else if (line[i] == '#')
         {
             map[depth_count][i] = true;
         }
@@ -99,24 +97,25 @@ void readInMap(char* line, bool map[FOREST_DOWN_SIZE][FOREST_WIDTH])
     depth_count++;
 }
 
-int main(int argc, char *argv[]) {
-    FILE* fp;
+int main(int argc, char *argv[])
+{
+    FILE *fp;
     char line[LINE_LENGTH];
     bool map[FOREST_DOWN_SIZE][FOREST_WIDTH];
 
-#if( TEST_RUN == 1 )
+#if (TEST_RUN == 1)
     fp = fopen("test.txt", "r");
 #else
     fp = fopen("input.txt", "r");
 #endif
 
-    if(fp == NULL)
+    if (fp == NULL)
     {
         printf("File could not be opened!");
         exit(1);
     }
 
-    while(fgets(line, sizeof(line), fp) != NULL)
+    while (fgets(line, sizeof(line), fp) != NULL)
     {
         readInMap(&line[0], map);
     }
@@ -130,5 +129,5 @@ int main(int argc, char *argv[]) {
     printf("Result 03_02: %lld\n", result);
 
     fclose(fp);
-    return(0);
+    return (0);
 }
